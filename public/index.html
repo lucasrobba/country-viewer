@@ -7,7 +7,21 @@
 </head>
 <body>
   <h1>🌍 Lista de Países</h1>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="Buscar país...">
+    <select id="regionFilter">
+      <option value="">🌐 Todas las regiones</option>
+      <option value="Africa">🌍 África</option>
+      <option value="Americas">🌎 Américas</option>
+      <option value="Asia">🌏 Asia</option>
+      <option value="Europe">🌍 Europa</option>
+      <option value="Oceania">🌊 Oceanía</option>
+    </select>
+  </div>
+
   <div id="countries">Cargando...</div>
+
   <script src="script.js"></script>
 </body>
 </html>
