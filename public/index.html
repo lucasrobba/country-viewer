@@ -2,26 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visualizador de Países</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🌍 Lista de Países</h1>
-
-  <div class="controls">
-    <input type="text" id="search" placeholder="Buscar país...">
+  <h1>🌍 Visualizador de Países</h1>
+  <div id="filters">
+    <input type="text" id="search" placeholder="Buscar país..." />
     <select id="regionFilter">
-      <option value="">🌐 Todas las regiones</option>
-      <option value="Africa">🌍 África</option>
-      <option value="Americas">🌎 Américas</option>
-      <option value="Asia">🌏 Asia</option>
-      <option value="Europe">🌍 Europa</option>
-      <option value="Oceania">🌊 Oceanía</option>
+      <option value="">Todas las regiones</option>
+      <option value="Africa">África</option>
+      <option value="Americas">Américas</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europa</option>
+      <option value="Oceania">Oceanía</option>
     </select>
+    <button id="searchButton">Buscar</button>
   </div>
-
-  <div id="countries">Cargando...</div>
-
+  <div id="countries"></div>
   <script src="script.js"></script>
 </body>
 </html>

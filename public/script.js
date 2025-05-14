@@ -23,31 +23,34 @@ function renderCountries(data) {
   data.forEach(country => {
     const div = document.createElement('div');
     div.className = 'country';
-    div.innerHTML = `
-      <img src="\${country.flags.png}" alt="Bandera de \${country.name.common}">
+    div.innerHTML = \`
+      <img src="\${country.flags?.png}" alt="Bandera de \${country.name?.common}">
       <div class="country-info">
-        <strong>\${country.name.common}</strong><br>
+        <strong>\${country.name?.common}</strong><br>
         Capital: \${country.capital ? country.capital[0] : 'N/A'}<br>
         Región: \${country.region}<br>
-        <a href="https://www.google.com/maps?q=\${country.latlng.join(',')}" target="_blank">📍 Ver en mapa</a>
+        <a href="https://www.google.com/maps?q=\${country.latlng?.join(',')}" target="_blank">📍 Ver en mapa</a>
       </div>
-    `;
+    \`;
     container.appendChild(div);
   });
 }
-
-document.getElementById('search').addEventListener('input', applyFilters);
-document.getElementById('regionFilter').addEventListener('change', applyFilters);
 
 function applyFilters() {
   const search = document.getElementById('search').value.toLowerCase();
   const region = document.getElementById('regionFilter').value;
 
   const filtered = countriesData.filter(country => {
-    const nameMatch = country.name.common.toLowerCase().includes(search);
+    const nameMatch = country.name?.common?.toLowerCase().includes(search);
     const regionMatch = region === '' || country.region === region;
     return nameMatch && regionMatch;
   });
 
   renderCountries(filtered);
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('search').addEventListener('input', applyFilters);
+  document.getElementById('regionFilter').addEventListener('change', applyFilters);
+  document.getElementById('searchButton').addEventListener('click', applyFilters);
+});
